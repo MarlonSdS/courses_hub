@@ -1,7 +1,7 @@
 <template>
     <header>
-        <img src="../assets/logo_portal.png" alt="Courses Hub">
-        <div class="section-buttons">
+        <img src="../assets/logo_portal.png" alt="Courses Hub" @click="goHome">
+        <div class="section-buttons" :class="{'active': isActive}">
             <form action="">
                 <input type="text" name="search" id="search" placeholder="Search for courses">
                 <button type="submit">
@@ -14,7 +14,7 @@
             <a href="" class="cart"><Cart/></a>
         </div>
         <button class="menu-button">
-            <Menu class="menu"/>
+            <Menu class="menu" :size="48" @click="toggleMenu"/>
         </button>
     </header>
 </template>
@@ -31,6 +31,19 @@
             Account,
             Cart,
             Menu
+        },
+        data() {
+            return{
+                isActive: false
+            }
+        },
+        methods: {
+            toggleMenu(){
+                this.isActive = !this.isActive
+            },
+            goHome(){
+                window.location.href='/'
+            }
         }
     }
 </script>
@@ -51,7 +64,7 @@
 
     header img{
         width: 15%;
-        
+        cursor: pointer;
     }
 
     form{
@@ -133,11 +146,43 @@
 
     @media (max-width: 768px){
         .section-buttons{
-            display: none;
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            right: 0;
+            height: 100;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 15%;
+            padding-bottom: 15%;
+            transform: translateX(100%);
+            transition: transform 0.3s ease; 
+            background-color: mediumaquamarine;
+            box-shadow: 5px 5px 20px grey;
+        }
+
+        .section-buttons.active{
+            transform: translateX(0);
+        }
+
+        .section-buttons a{
+            margin-top: 2vh;
+        }
+
+        .section-buttons form{
+            width: 90%;
+        }
+
+        form button{
+            width: 12%;
         }
 
         header{
             justify-content: space-between;
+            z-index: 20;
+            position: fixed;
+            top: 0;
+            right: 0;
         }
 
         header img{
@@ -149,6 +194,8 @@
             background: none;
             border: none;
             color: white;
+            position: relative;
+            z-index: 21;
         }
         
     }
