@@ -8,10 +8,10 @@
                     <Magnify/>
                 </button>
             </form>
-            <a href="" class="link">Online courses</a>
-            <a href="" class="login"><Account/>Login</a>
-            <a href="" class="register">Register</a>
-            <a href="" class="cart"><Cart/></a>
+            <a href="" class="btn">Online courses</a>
+            <a href="" class="btn laranja-outline"><Account/>Login</a>
+            <a href="" class="btn laranja">Register</a>
+            <RouterLink to="/cart" class="btn" @click="toggleMenu"><Cart/></RouterLink>
         </div>
         <button class="menu-button">
             <Menu class="menu" :size="48" @click="toggleMenu"/>
@@ -24,13 +24,15 @@
     import Account from 'vue-material-design-icons/Account.vue';
     import Cart from 'vue-material-design-icons/CartOutline.vue';
     import Menu from 'vue-material-design-icons/Menu.vue';
+import { RouterLink } from 'vue-router';
     export default {
         name: 'SiteHeader',
         components: {
             Magnify,
             Account,
             Cart,
-            Menu
+            Menu,
+            RouterLink
         },
         data() {
             return{
@@ -39,6 +41,7 @@
         },
         methods: {
             toggleMenu(){
+                console.log(this.$apiUrl)
                 this.isActive = !this.isActive
             },
             goHome(){
@@ -60,6 +63,8 @@
         box-shadow: 5px 5px 20px grey;
         display: flex;
         justify-content: space-around;
+        z-index: 20;
+        position: relative;
     }
 
     header img{
@@ -109,30 +114,6 @@
         align-items: center;
     }
 
-    .section-buttons a{
-        color: white;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 1rem;
-        font-family: Arial, Helvetica, sans-serif;
-        align-content: center;
-        align-items: center;
-        padding: 6px;
-        height: 40%;
-        display: flex;
-        border-radius: 20px;
-        margin-left: 1%;
-    }
-
-    .section-buttons .login{
-        border: 2px solid orangered;
-    }
-
-    .section-buttons .register{
-        background-color: orangered;
-    }
-
     .menu-button{
         display: none;
     }
@@ -150,7 +131,6 @@
             z-index: 10;
             top: 0;
             right: 0;
-            height: 100;
             flex-direction: column;
             justify-content: space-between;
             padding-top: 15%;
@@ -180,9 +160,6 @@
         header{
             justify-content: space-between;
             z-index: 20;
-            position: fixed;
-            top: 0;
-            right: 0;
         }
 
         header img{

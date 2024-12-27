@@ -1,14 +1,18 @@
 <template>
   <Header />
+  <RouterView />
+  
 </template>
 
 <script>
 import Header from './components/Header.vue';
+import { RouterView } from 'vue-router';
 
 export default {
   name: 'Courses-Hub',
   components: {
-    Header
+    Header,
+    RouterView,
   }
 }
 </script>

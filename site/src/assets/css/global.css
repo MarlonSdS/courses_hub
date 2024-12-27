@@ -1,0 +1,63 @@
+@import url('bootstrap/dist/css/bootstrap.css');
+
+/*BOTÕES*/
+.btn{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    height: 60%;
+    width: auto;
+    display: flex;
+    border-radius: 20px;
+    margin-left: 1%;
+}
+
+.btn:hover{
+    color: white;
+}
+
+.laranja-outline{
+    border: 2px solid orangered;
+}
+
+.laranja-outline:hover{
+    border: 2px solid orangered;
+}
+
+.laranja{
+    background-color: orangered;
+}
+
+.laranja:hover{
+    background-color: orangered;
+}
+
+@media (max-width: 768px){
+    .btn{
+        max-width: 30vw;
+    }
+}
+
+/*HOMEPAGE*/
+.presentation{
+    min-height: 90vh;
+    background-image: url('../img/system/banner-presentation-desktop.jpg');
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100vw auto, 100% 100%;
+    background-position: 50% 90%, 0 0;
+    z-index: 5;
+}
+
+@media (max-width: 768px) {
+    .presentation{
+        background-image: url(../img/system/banner-presentation-mobile.jpg);
+        background-size: cover;
+    }
+}
