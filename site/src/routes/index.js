@@ -1,11 +1,12 @@
 import { createMemoryHistory, createRouter } from 'vue-router'
 
-import HomeView from '../views/Home.vue'
-import CartView from '../views/Cart.vue'
 
 const routes = [
-  { path: '/', component: HomeView },
-  { path: '/cart', component: CartView },
+  { path: '/', component: () => import('@/views/Home.vue') },
+  { path: '/cart', component: () => import('@/views/Cart.vue') },
+  { path: '/register', component: ()=>import('@/views/Register.vue')},
+  { path: '/login', component: ()=>import('@/views/Login.vue')},
+  { path: '/courses', component: ()=>import('@/views/Courses.vue')}
 ]
 
 const router = createRouter({

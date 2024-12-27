@@ -8,9 +8,9 @@
                     <Magnify/>
                 </button>
             </form>
-            <a href="" class="btn">Online courses</a>
-            <a href="" class="btn laranja-outline"><Account/>Login</a>
-            <a href="" class="btn laranja">Register</a>
+            <RouterLink to="/courses" class="btn" @click="toggleMenu">Online courses</RouterLink>
+            <RouterLink to="/login" class="btn laranja-outline" @click="toggleMenu"><Account/>Login</RouterLink>
+            <RouterLink to="/register" class="btn laranja" @click="toggleMenu">Register</RouterLink>
             <RouterLink to="/cart" class="btn" @click="toggleMenu"><Cart/></RouterLink>
         </div>
         <button class="menu-button">
@@ -24,7 +24,7 @@
     import Account from 'vue-material-design-icons/Account.vue';
     import Cart from 'vue-material-design-icons/CartOutline.vue';
     import Menu from 'vue-material-design-icons/Menu.vue';
-import { RouterLink } from 'vue-router';
+    import { RouterLink } from 'vue-router';
     export default {
         name: 'SiteHeader',
         components: {
@@ -154,7 +154,11 @@ import { RouterLink } from 'vue-router';
         }
 
         form button{
-            width: 12%;
+            width: 16%;
+        }
+
+        form input{
+            max-width: 100%;
         }
 
         header{
